@@ -1,4 +1,4 @@
-import Posts from "./components/Posts";
+import EStore from "./components/EStore";
 
 export default function App() {
 
@@ -7,8 +7,8 @@ export default function App() {
   return (
     <div>
 
-      {/* <Exchange /> */}
-      <Posts />
+      <EStore />
+
     </div>
   )
 

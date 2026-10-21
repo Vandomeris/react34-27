@@ -31,6 +31,20 @@ export default function Posts() {
     const [postTitle, setPostTitle] = useState('')
     const [postBody, setPostBody] = useState('')
 
+
+    async function handleSubmit(event: React.SubmitEvent) {
+        event.preventDefault()
+        const resp = await ky.post('https://jsonplaceholder.typicode.com/posts', {
+            json: {
+                title: postTitle,
+                body: postBody,
+                userId: userId
+            }
+        }).json()
+        console.log(resp)
+    }
+
+
     return (
         <div>
             <button
@@ -40,7 +54,7 @@ export default function Posts() {
 
                 {
                     showForm && (
-                        <form>
+                        <form onSubmit={(event) => handleSubmit(event)}>
 
                             <input value={userId} onInput={(e) => setUserId(Number(e.currentTarget.value))} type="number" placeholder="User ID" />
                             <input value={postTitle} onInput={(e) => setPostTitle(e.currentTarget.value)} type="text" placeholder="Post Title" />

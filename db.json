@@ -1,0 +1,196 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "phones": [
+    {
+      "id": "1",
+      "brand": "Apple",
+      "model": "iPhone 15 Pro",
+      "price": 999,
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "brand": "Samsung",
+      "model": "Galaxy S24 Ultra",
+      "price": 1199,
+      "inStock": true
+    },
+    {
+      "id": "3",
+      "brand": "Xiaomi",
+      "model": "14 Ultra",
+      "price": 899,
+      "inStock": false
+    },
+    {
+      "id": "4",
+      "brand": "Google",
+      "model": "Pixel 8 Pro",
+      "price": 799,
+      "inStock": true
+    }
+  ],
+  "laptops": [
+    {
+      "id": "1",
+      "brand": "Apple",
+      "model": "MacBook Air M3",
+      "price": 1099,
+      "specs": {
+        "ram": "8GB",
+        "storage": "256GB"
+      }
+    },
+    {
+      "id": "2",
+      "brand": "ASUS",
+      "model": "ROG Zephyrus G14",
+      "price": 1599,
+      "specs": {
+        "ram": "16GB",
+        "storage": "1TB"
+      }
+     },
+    {
+      "brand": "dsasd",
+      "model": "dasdasdasda",
+      "price": 2313123123,
+      "specs": {
+        "ram": "12312312312",
+        "storage": "3123123112"
+      },
+      "id": "0Ac4EhoIJFg"
+    },
+    {
+      "brand": "ewqeqweqweqweqw",
+      "model": "33312312312",
+      "price": 123123123,
+      "specs": {
+        "ram": "312312312",
+        "storage": "312312312312"
+      },
+      "id": "4ecPua37YiU"
+    },
+    {
+      "brand": "фвывфывфывф",
+      "model": "фвыфыввфы",
+      "price": 12312,
+      "specs": {
+        "ram": "132",
+        "storage": "1231"
+      },
+      "id": "nHeJZ1rvH0c"
+    },
+    {
+      "brand": "dfghjk",
+      "model": "dfghj",
+      "price": 123,
+      "specs": {
+        "ram": "123",
+        "storage": "123"
+      },
+      "id": "uGs8laEo0-U"
+    },
+    {
+      "brand": "sdfgh",
+      "model": "dfgh",
+      "price": 12312,
+      "specs": {
+        "ram": "123",
+        "storage": "213"
+      },
+      "id": "7MpMoLkLNoE"
+    },
+    {
+      "brand": "dsaas",
+      "model": "das",
+      "price": 3123,
+      "specs": {
+        "ram": "123",
+        "storage": "312"
+      },
+      "id": "71uoPUFXELc"
+    },
+    {
+      "brand": "dsaas",
+      "model": "das",
+      "price": 3123,
+      "specs": {
+        "ram": "123",
+        "storage": "312"
+      },
+      "id": "i8_yzoUFxDs"
+    },
+    {
+      "brand": "dsaas",
+      "model": "das",
+      "price": 3123,
+      "specs": {
+        "ram": "123",
+        "storage": "312"
+      },
+      "id": "vy6WtgCRUkM"
+    },
+    {
+      "brand": "dsaas",
+      "model": "das",
+      "price": 3123,
+      "specs": {
+        "ram": "123",
+        "storage": "312"
+      },
+      "id": "dlSlNnFcXkU"
+    },
+    {
+      "brand": "dsaas",
+      "model": "das",
+      "price": 3123,
+      "specs": {
+        "ram": "123",
+        "storage": "312"
+      },
+      "id": "dWN8z9fnzCI"
+    }
+  ],
+  "accessories": [
+    {
+      "id": "1",
+      "name": "Wireless Earbuds",
+      "price": 149,
+      "phoneId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Leather Case",
+      "price": 49,
+      "phoneId": "2"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
