@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router'
+import { createBrowserRouter, redirect } from 'react-router'
 import HomePage from './pages/HomePage'
 import ProductsPage from './pages/ProductsPage'
 import MainLayout from './pages/MainLayout'
@@ -7,6 +7,7 @@ import TodosPage from './pages/TodosPage'
 import EStore from './components/EStore'
 import ExchangePage from './pages/ExchangePage'
 import ProductPage from './pages/ProductPage'
+import ProfilePage from './pages/ProfilePage'
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,11 @@ export const router = createBrowserRouter([
             {
                 path: 'product/:id',
                 Component: ProductPage
+            },
+            {
+                path: 'profile',
+                Component: ProfilePage,
+                middleware: [authMiddleware]
             }
         ]
     },
@@ -48,3 +54,13 @@ export const router = createBrowserRouter([
         element: <div>404!!!!!!!!!!!</div>
     }
 ])
+
+
+
+function authMiddleware() {
+    const token = localStorage.getItem('token')
+
+    if (!token) {
+        throw redirect('/')
+    }
+}

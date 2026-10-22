@@ -1,5 +1,5 @@
 import ky from "ky"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import type { Laptop } from "../types"
 
@@ -16,9 +16,24 @@ export default function ProductPage() {
         setProduct(resp)
     }
 
+    useEffect(() => {
+        getProduct()
+    }, [])
+
     return (
         <div>
-            Карточка товара
+            {
+                product ?
+                    (
+                        <>
+                            <p>{product.brand}</p>
+                            <p>{product.model}</p>
+                            <p>{product.price} rubles</p>
+                            <p>{product.specs.ram}GB</p>
+                        </>
+                    )
+                    : <div>Загрузка.......</div>
+            }
         </div>
     )
 
