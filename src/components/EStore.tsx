@@ -1,6 +1,7 @@
 import ky from "ky"
 import { useEffect, useState } from "react"
 import type { Laptop } from "../types"
+import { NavLink } from "react-router"
 
 export default function EStore() {
 
@@ -72,12 +73,12 @@ export default function EStore() {
             <div className="grid grid-cols-5 gap-5">
                 {
                     laptops.map(lap => (
-                        <div>
+                        <NavLink to={`/product/${lap.id}`}>
                             <p>{lap.brand} {lap.model}</p>
                             <p>{lap.price}</p>
                             <p>{lap.specs.ram}</p>
                             <p>{lap.specs.storage}</p>
-                        </div>
+                        </NavLink>
                     ))
                 }
             </div>
