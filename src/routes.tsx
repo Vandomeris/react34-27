@@ -8,6 +8,7 @@ import EStore from './components/EStore'
 import ExchangePage from './pages/ExchangePage'
 import ProductPage from './pages/ProductPage'
 import ProfilePage from './pages/ProfilePage'
+import TimerPage from './pages/TimerPage'
 
 export const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ export const router = createBrowserRouter([
                 path: 'profile',
                 Component: ProfilePage,
                 middleware: [authMiddleware]
+            },
+            {
+                path: 'timer',
+                Component: TimerPage
             }
         ]
     },
