@@ -9,6 +9,7 @@ import ExchangePage from './pages/ExchangePage'
 import ProductPage from './pages/ProductPage'
 import ProfilePage from './pages/ProfilePage'
 import TimerPage from './pages/TimerPage'
+import FibonacciCalcPage from './pages/FibonacciCalcPage'
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
             {
                 path: 'timer',
                 Component: TimerPage
+            },
+            {
+                path: 'fibonacci',
+                Component: FibonacciCalcPage
             }
         ]
     },

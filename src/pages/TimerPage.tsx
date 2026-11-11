@@ -6,7 +6,7 @@ export default function TimerPage() {
 
     const timerId = useRef<number | null>(null)
 
-    const input = document.querySelector('.input')
+    const input = useRef<HTMLInputElement | null>(null)
 
     function start() {
 
@@ -26,7 +26,8 @@ export default function TimerPage() {
         if (timerId.current) {
             clearInterval(timerId.current)
             timerId.current = null
-            input?.focus()
+            if (input.current)
+                input.current.focus()
         }
     }
 
@@ -40,7 +41,7 @@ export default function TimerPage() {
                 <button onClick={stop}>Стоп</button>
             </div>
             <div>
-                <input className="input" type="text" placeholder="Запишите время круга" />
+                <input ref={input} className="input" type="text" placeholder="Запишите время круга" />
             </div>
         </div>
     )
