@@ -1,16 +1,22 @@
 import ky from "ky"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import type { Post } from "../types"
 
-export default function EditPosts(){
-    
+export default function EditPosts() {
+
     const [posts, setPosts] = useState<Post[]>([])
 
     async function getPosts() {
-        const resp = await ky.get<Post[]>('https://jsonplaceholder.typicode.com/posts').json()
+        const resp = await ky.get<Post[]>('/posts.json').json()
         setPosts(resp)
-        
     }
+
+    useEffect(
+        () => {
+            getPosts()
+        },
+        []
+    )
 
 
     return (
