@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
+import { useUser } from "../context/UserContext"
+
 
 export default function Exchange() {
+    
+    const user = useUser()
 
     const [rubles, setRubles] = useState<number | null>(null)
 
@@ -29,6 +33,11 @@ export default function Exchange() {
             <h1>Обмен валют</h1>
 
             <div>
+                {
+                    user?.role === 'admin' && (
+                        <button>Изменить курс обмена</button>
+                    )
+                }
                 <input
                     value={rubles}
                     onInput={(e) => setRubles(Number(e.currentTarget.value))}

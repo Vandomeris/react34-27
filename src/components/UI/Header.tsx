@@ -1,8 +1,7 @@
 import { Link, NavLink } from "react-router";
 import UserInfo from "./UserInfo";
-import type { User } from "../../types";
 
-export default function Header({user, setUser}: {user: User | null, setUser: any}) {
+export default function Header() {
 
 
     return (
@@ -21,7 +20,7 @@ export default function Header({user, setUser}: {user: User | null, setUser: any
                 <NavLink to="/todos">Список дел</NavLink>
             </div>
 
-            <UserInfo user={user} setUser={setUser} />
+            <UserInfo />
 
 
 

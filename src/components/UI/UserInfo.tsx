@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router";
-import type { User } from "../../types";
+import { useUser } from "../../context/UserContext";
+export default function UserInfo() {
 
-export default function UserInfo({ user, setUser }: { user: User | null, setUser: any }) {
-
+    const user = useUser()
     if (user) {
         return (
             <div className="flex gap-x-4 items-center">
@@ -14,7 +14,7 @@ export default function UserInfo({ user, setUser }: { user: User | null, setUser
 
                 <Link to="/profile">{user.email}</Link>
 
-                <button onClick={() => setUser(null)}>🚪</button>
+                <button onClick={() => user.logout()}>🚪</button>
 
             </div>
         )
