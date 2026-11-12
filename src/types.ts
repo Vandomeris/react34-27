@@ -16,3 +16,11 @@ export interface Laptop {
         "storage": string
     }
 }
+
+
+export interface User {
+    id: number,
+    email: string,
+    balance: number,
+    role: "user" | "admin"
+}

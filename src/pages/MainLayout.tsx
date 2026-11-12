@@ -1,17 +1,22 @@
+import { useState } from "react";
 import { NavLink, Outlet } from "react-router";
+import type { User } from "../types";
+import Header from "../components/UI/Header";
 
 export default function MainLayout() {
 
+    const [user, setUser] = useState<User | null>({
+        id: 1,
+        email: 'someuser@gmail.com',
+        balance: 2740,
+        role: 'user'
+    })
+
+
     return (
         <div>
-            <header>
-                <NavLink to="/">Главная</NavLink>
-                <NavLink to="/products">Товары</NavLink>
-                <NavLink to="/posts">Посты</NavLink>
-                <NavLink to="/exchange">Обмен валют</NavLink>
-                <NavLink to="/estore">Е-магазин</NavLink>
-                <NavLink to="/todos">Список дел</NavLink>
-            </header>
+            
+            <Header user={user} setUser={setUser} />
 
             <main><Outlet /></main>
 
