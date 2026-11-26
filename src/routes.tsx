@@ -12,6 +12,7 @@ import TimerPage from './pages/TimerPage'
 import FibonacciCalcPage from './pages/FibonacciCalcPage'
 import EditPosts from './pages/EditPosts'
 import ReadLaterPage from './pages/ReadLaterPage'
+import LoginPage from './pages/LoginPage'
 
 export const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: 'later',
                 Component: ReadLaterPage
+            },
+            {
+                path: 'login',
+                Component: LoginPage
             }
         ]
     },

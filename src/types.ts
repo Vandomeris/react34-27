@@ -19,8 +19,12 @@ export interface Laptop {
 
 
 export interface User {
-    id: number,
-    email: string,
-    balance: number,
-    role: "user" | "admin"
+    id: number
+    username: string,
+    is_admin: boolean
+}
+
+export interface LoginResponse {
+    access_token: string,
+    token_type: string
 }

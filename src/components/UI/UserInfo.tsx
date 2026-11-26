@@ -1,20 +1,17 @@
 import { Link, NavLink } from "react-router";
-import { useUser } from "../../context/UserContext";
+import { useAuthStore } from "../../stores/authStore";
 export default function UserInfo() {
 
-    const user = useUser()
+    const user = useAuthStore(state => state.user)
+    const logout = useAuthStore(state => state.logout)
+
     if (user) {
         return (
             <div className="flex gap-x-4 items-center">
 
-                <div>
-                    <button>🔃</button>
-                    <span>Баланс: {user.balance}$</span>
-                </div>
+                <Link to="/profile">{user.username}</Link>
 
-                <Link to="/profile">{user.email}</Link>
-
-                <button onClick={() => user.logout()}>🚪</button>
+                <button onClick={() => logout()}>🚪</button>
 
             </div>
         )
