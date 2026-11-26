@@ -1,34 +1,25 @@
-import { useState } from "react";
-import { NavLink, Outlet } from "react-router";
-import type { User } from "../types";
+import { Outlet } from "react-router";
 import Header from "../components/UI/Header";
-import { UserContext } from "../context/UserContext";
+import { useAuthStore } from "../stores/authStore";
+import { useEffect } from "react";
 
 
 export default function MainLayout() {
 
-    const [user, setUser] = useState<User | null>({
-        id: 1,
-        email: 'someuser@gmail.com',
-        balance: 2740,
-        role: 'admin'
-    })
+    const checkAuth = useAuthStore(state => state.checkAuth)
 
+    useEffect(() => {
+        checkAuth()
+    }, [checkAuth])
 
     return (
         <div>
-            <UserContext.Provider value={user ? {
-                ...user,
-                logout: () => setUser(null),
-            }: null}>
 
                 <Header />
 
                 <main><Outlet /></main>
 
                 <footer></footer>
-
-            </UserContext.Provider>
             
         </div>
     )
