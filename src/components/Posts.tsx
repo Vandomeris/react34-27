@@ -1,25 +1,43 @@
 import { useEffect, useState } from "react"
 import type { Post } from "../types"
-import ky from "ky"
+import ky, { isHTTPError, isKyError } from "ky"
+import { api } from "../api"
+import { useReadLaterStore } from "../stores/readLaterStore"
+
+
 
 export default function Posts() {
 
     const [posts, setPosts] = useState<Post[]>([])
+    const [pending, setPending] = useState(true)
+    const [error, setError] = useState<string | null>(null)
 
-    // async function getPosts() {
-    //     const resp = await fetch('https://jsonplaceholder.typicode.com/posts')
-    //     const data = (await resp.json()) as Post[]
-    //     setPosts(data)
-    // }
 
-    async function getPosts() {
-        const data = await ky<Post[]>('https://jsonplaceholder.typicode.com/posts').json()
-        setPosts(data)
-    }
+    const addPosts = useReadLaterStore(state => state.add)
+
 
     useEffect(
         () => {
+
+            async function getPosts() {
+
+                try {
+                    const data = await api.get<Post[]>('/posts').json()
+                    setPosts(data)
+                } catch (error) {
+                    if(isKyError(error)){
+                        setError(error.message)
+                    }
+                } finally {
+                    setPending(false)
+                }
+
+
+
+            }
+
             getPosts()
+
         },
         []
     )
@@ -34,7 +52,7 @@ export default function Posts() {
 
     async function handleSubmit(event: React.SubmitEvent) {
         event.preventDefault()
-        const resp = await ky.post('https://jsonplaceholder.typicode.com/posts', {
+        const resp = await api.post('/posts', {
             json: {
                 title: postTitle,
                 body: postBody,
@@ -42,6 +60,25 @@ export default function Posts() {
             }
         }).json()
         console.log(resp)
+    }
+
+
+    if (pending) {
+        return (
+            <div>
+                Идет загрузка.....
+            </div>
+        )
+    }
+
+
+    if(error){
+        return (
+            <div>
+                При выполнении запроса произошла ошибка:
+                <p>{error}</p>
+            </div>
+        )
     }
 
 
@@ -75,6 +112,7 @@ export default function Posts() {
                         <div className="p-5 border border-blue-500">
                             <p> {post.title} </p>
                             <p> {post.body} </p>
+                            <button onClick={() => addPosts(post)} className="py-1 px-2 bg-pink-300">Читать позже</button>
                         </div>
                     ))
                 }

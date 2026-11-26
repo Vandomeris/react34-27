@@ -11,6 +11,7 @@ import ProfilePage from './pages/ProfilePage'
 import TimerPage from './pages/TimerPage'
 import FibonacciCalcPage from './pages/FibonacciCalcPage'
 import EditPosts from './pages/EditPosts'
+import ReadLaterPage from './pages/ReadLaterPage'
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             {
                 path: 'admin/edit',
                 Component: EditPosts
+            },
+            {
+                path: 'later',
+                Component: ReadLaterPage
             }
         ]
     },

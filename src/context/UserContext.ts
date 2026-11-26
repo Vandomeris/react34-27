@@ -12,8 +12,13 @@ export const UserContext = createContext<UserContextType | null>(null)
 
 
 export function useUser(){
-    
+
     const context = useContext(UserContext)
 
-    return context
+    if(context) {
+        return context
+
+    }
+    
+
 }

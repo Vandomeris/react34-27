@@ -29,6 +29,7 @@ export default function MainLayout() {
                 <footer></footer>
 
             </UserContext.Provider>
+            
         </div>
     )
 

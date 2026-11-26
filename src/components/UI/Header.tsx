@@ -18,6 +18,7 @@ export default function Header() {
                 <NavLink to="/exchange">Обмен валют</NavLink>
                 <NavLink to="/estore">Е-магазин</NavLink>
                 <NavLink to="/todos">Список дел</NavLink>
+                <NavLink to="/later">ПОчитать позже</NavLink>
             </div>
 
             <UserInfo />
